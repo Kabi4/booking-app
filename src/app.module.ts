@@ -38,8 +38,8 @@ import { RoutePaths } from './routes/route-paths';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(RequestLogger).forRoutes('*');
-    // Auth controller is public; all other controllers require a valid JWT
-    consumer.apply(AuthMiddleware).forRoutes(AppController, BookingController);
+    // Public: auth controller + health. Protected: booking routes only.
+    consumer.apply(AuthMiddleware).forRoutes(BookingController);
     consumer.apply(AuthAdminMiddleware).forRoutes({
       path: RoutePaths.bookings,
       method: RequestMethod.GET,
