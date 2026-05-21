@@ -29,3 +29,6 @@ jobs:
 
       - name: Run TypeScript build
         run: npm run build
+
+      - name: Build Docker image
+        run: docker build -t booking-system .
