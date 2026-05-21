@@ -5,7 +5,7 @@
   "scripts": {
     "build": "nest build",
     "start": "nest start",
-    "start:dev": "docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build",
+    "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "migration:up": "node -r ts-node/register ./node_modules/knex/bin/cli.js migrate:latest --knexfile knexfile.cjs",
